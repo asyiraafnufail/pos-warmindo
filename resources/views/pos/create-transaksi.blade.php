@@ -1,5 +1,10 @@
 <x-filament-panels::page>
     <style>
+        /* Reset native browser focus outlines */
+        button:focus, button:active, input:focus, select:focus, textarea:focus {
+            outline: none !important;
+        }
+
         /* POS Layout Grid System */
         .pos-container {
             display: flex;
@@ -207,11 +212,11 @@
                         <div>
                             <!-- Kategori Badge (Filament Design System Consistent) -->
                             @if($menu->kategori == 'Makanan')
-                                <span class="inline-flex items-center rounded-md px-2 py-0.5 text-[10px] font-medium bg-amber-50 text-amber-800 ring-1 ring-inset ring-amber-600/20 uppercase tracking-wider">Makanan</span>
+                                <span class="inline-flex items-center rounded-md px-2 py-0.5 text-[10px] font-medium bg-amber-50 text-amber-800 uppercase tracking-wider">Makanan</span>
                             @elseif($menu->kategori == 'Minuman')
-                                <span class="inline-flex items-center rounded-md px-2 py-0.5 text-[10px] font-medium bg-blue-50 text-blue-700 ring-1 ring-inset ring-blue-600/20 uppercase tracking-wider">Minuman</span>
+                                <span class="inline-flex items-center rounded-md px-2 py-0.5 text-[10px] font-medium bg-blue-50 text-blue-700 uppercase tracking-wider">Minuman</span>
                             @else
-                                <span class="inline-flex items-center rounded-md px-2 py-0.5 text-[10px] font-medium bg-emerald-50 text-emerald-700 ring-1 ring-inset ring-emerald-600/20 uppercase tracking-wider">Toping</span>
+                                <span class="inline-flex items-center rounded-md px-2 py-0.5 text-[10px] font-medium bg-emerald-50 text-emerald-700 uppercase tracking-wider">Toping</span>
                             @endif
 
                             <h3 class="font-bold text-slate-800 mt-3 text-sm line-clamp-2 pr-2 min-h-[40px] leading-snug">
@@ -221,9 +226,9 @@
                             <!-- Info Stok -->
                             <div class="mt-2 flex items-center gap-1.5">
                                 @if($menu->stok <= 0)
-                                    <span class="inline-flex items-center rounded-md px-1.5 py-0.5 text-[10px] font-medium bg-rose-50 text-rose-700 ring-1 ring-inset ring-rose-600/10">Habis</span>
+                                    <span class="inline-flex items-center rounded-md px-1.5 py-0.5 text-[10px] font-medium bg-rose-50 text-rose-700">Habis</span>
                                 @elseif($menu->stok <= 10)
-                                    <span class="inline-flex items-center rounded-md px-1.5 py-0.5 text-[10px] font-medium bg-amber-50 text-amber-800 ring-1 ring-inset ring-amber-600/10">Sisa {{ $menu->stok }} porsi</span>
+                                    <span class="inline-flex items-center rounded-md px-1.5 py-0.5 text-[10px] font-medium bg-amber-50 text-amber-800">Sisa {{ $menu->stok }} porsi</span>
                                 @else
                                     <span class="text-[10px] text-slate-400">Tersedia: <span class="font-semibold text-slate-600">{{ $menu->stok }}</span></span>
                                 @endif
