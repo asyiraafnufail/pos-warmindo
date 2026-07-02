@@ -1,25 +1,20 @@
 <?php
 
-namespace Database\Seeders;
+namespace database\seeders;
 
 use App\Models\User;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
-    use WithoutModelEvents;
-
-    /**
-     * Seed the application's database.
-     */
     public function run(): void
     {
-        // User::factory(10)->create();
-
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+        User::create([
+            'name' => 'Superadmin Warmindo',
+            'email' => 'admin@warmindo.com',
+            'password' => Hash::make('12345678'), // Password di-hash kuat
+            'is_superadmin' => true, // Diberi akses penuh
         ]);
     }
 }
